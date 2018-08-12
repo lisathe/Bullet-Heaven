@@ -6,15 +6,20 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
     private float _speed;
+    private Rigidbody2D _rb;
 
-	private void Update ()
+    private void Awake()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update ()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontal, vertical, 0);
-        direction = direction * _speed * Time.deltaTime;
+        _rb.velocity = direction * _speed;
 
-        transform.position += direction;
 	}
 }
