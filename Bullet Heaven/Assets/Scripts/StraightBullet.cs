@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Bullet with straight movement (going up in y axis)
-public class StraightBullet : MonoBehaviour {
+public class StraightBullet : Bullet {
 
     [SerializeField]
     private float _speed;
     private Rigidbody2D _rb;
 
-	private void Awake ()
+	public override void Awake ()
     {
         _rb = GetComponent<Rigidbody2D>();
+        base.Awake();
 	}
 	
-	private void Update ()
+	public override void Update ()
     {
         _rb.velocity = Vector2.up * _speed;
+        base.Update();
 	}
 
 }
