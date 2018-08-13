@@ -616,4 +616,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerBullet: {fileID: 1981259851977390, guid: 34f530bfb56e6024a89f23165885bf63,
     type: 2}
-  _autoFire: 0
+  _autoFire: 1

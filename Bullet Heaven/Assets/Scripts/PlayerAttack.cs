@@ -10,19 +10,26 @@ public class PlayerAttack : MonoBehaviour {
     // Needs to be placed in the settings, or so.
     [SerializeField]
     private bool _autoFire;
-	
-	// Update is called once per frame
-	void Update ()
+    private float _fireRate;
+    private float _nextFire;
+
+    private void Awake()
+    {
+        _fireRate = 0.15f;
+        _nextFire = 0;
+    }
+
+    void Update ()
     {
         if (!_autoFire && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Pressed left mouse click");
             Fire();
         }
 
-        if (_autoFire) // And add timer with fire rate
+        if (_autoFire && Time.time > _nextFire)
         {
-            //Fire();
+            _nextFire = Time.time + _fireRate;
+            Fire();
         }
 	}
 
