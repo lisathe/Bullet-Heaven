@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update ()
     {
+        // Can move with wasd or arrow keys
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, vertical, 0);
+        Vector2 direction = new Vector2(horizontal, vertical);
         _rb.velocity = direction * _speed;
 
 	}

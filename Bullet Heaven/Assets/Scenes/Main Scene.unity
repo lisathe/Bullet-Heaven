@@ -438,6 +438,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 10.250162}
   m_EdgeRadius: 0
+--- !u!1 &1808096515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1808096516}
+  m_Layer: 0
+  m_Name: StartBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1808096516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808096515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.332, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1981172300}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981172298
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +478,7 @@ GameObject:
   - component: {fileID: 1981172301}
   - component: {fileID: 1981172302}
   - component: {fileID: 1981172303}
+  - component: {fileID: 1981172304}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -512,7 +541,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1808096516}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -573,3 +603,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1981172304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1981172298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6118a9e02544e34fb44df91c1322eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerBullet: {fileID: 1981259851977390, guid: 34f530bfb56e6024a89f23165885bf63,
+    type: 2}
+  _autoFire: 0
