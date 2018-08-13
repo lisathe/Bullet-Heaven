@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 
     [SerializeField]
-    private GameObject _playerBullet;
+    private ObjectPooler _bulletPool;
 
     // Needs to be placed in the settings, or so.
     [SerializeField]
@@ -23,20 +23,22 @@ public class PlayerAttack : MonoBehaviour {
     {
         if (!_autoFire && Input.GetMouseButtonDown(0))
         {
-            Fire();
+            Fire(_bulletPool);
         }
 
         if (_autoFire && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            Fire();
+            Fire(_bulletPool);
         }
 	}
 
-    private void Fire()
+    private void Fire(ObjectPooler pool)
     {
         // The first child of the player is the bullet start position
         Vector2 startPosition = transform.GetChild(0).position;
-        Instantiate(_playerBullet, startPosition, transform.rotation);
+        GameObject bullet = pool.GetPooledObject();
+        bullet.transform.position = startPosition;
+        bullet.SetActive(true);
     }
 }

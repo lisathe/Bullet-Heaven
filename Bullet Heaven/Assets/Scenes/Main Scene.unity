@@ -384,6 +384,49 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.472017, y: 1.1207883}
   m_EdgeRadius: 0
+--- !u!1 &1526449022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526449024}
+  - component: {fileID: 1526449023}
+  m_Layer: 0
+  m_Name: Straight Bullet Object Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1526449023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526449022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1589fcc413d644080200aa2139788c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObject: {fileID: 1981259851977390, guid: 34f530bfb56e6024a89f23165885bf63,
+    type: 2}
+  _pooledAmount: 20
+--- !u!4 &1526449024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526449022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5258127, y: -2.370793, z: -0.103365704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601423303
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808096516}
   m_Layer: 0
-  m_Name: StartBullet
+  m_Name: Start Position Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -614,6 +657,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6118a9e02544e34fb44df91c1322eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerBullet: {fileID: 1981259851977390, guid: 34f530bfb56e6024a89f23165885bf63,
-    type: 2}
+  _bulletPool: {fileID: 1526449023}
   _autoFire: 1
