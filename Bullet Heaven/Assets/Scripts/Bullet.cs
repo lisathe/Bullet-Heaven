@@ -33,7 +33,7 @@ public abstract class Bullet : MonoBehaviour {
         if (_isPlayer && !_isPlayerBullet)
         {
             gameObject.SetActive(false);
-            AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
+            //AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
             // Add TakeDamage(player)
         }
 
@@ -41,7 +41,7 @@ public abstract class Bullet : MonoBehaviour {
         {
 
             gameObject.SetActive(false);
-            AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
+            //AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
             //Add TakeDamage(enemy)
         }
     }

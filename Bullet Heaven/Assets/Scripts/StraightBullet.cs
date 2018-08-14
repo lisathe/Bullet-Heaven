@@ -16,6 +16,7 @@ public class StraightBullet : Bullet {
     {
         _rb = GetComponent<Rigidbody2D>();
         _isPlayer = _playerShot;
+        _isPlayerBullet = _playerShot;
         base.Awake();
 	}
 	
