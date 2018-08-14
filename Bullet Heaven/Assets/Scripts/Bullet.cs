@@ -16,7 +16,6 @@ public abstract class Bullet : MonoBehaviour {
         _destroyTime = 1.5f;
     }
 	
-	// Update is called once per frame
 	public virtual void Update ()
     {
         // If outside of the screen (due time), remove bullet.
@@ -29,13 +28,21 @@ public abstract class Bullet : MonoBehaviour {
 	}
 
     // If the player is hit by the enemy bullet, or the enemy is hit by the player bullet
-    // Remove bullet and play sound (defined in sub class)
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_isPlayer && !_isPlayerBullet || !_isPlayer && _isPlayerBullet)
+        if (_isPlayer && !_isPlayerBullet)
         {
             gameObject.SetActive(false);
             AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
+            // Add TakeDamage(player)
+        }
+
+        if (!_isPlayer && _isPlayerBullet)
+        {
+
+            gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
+            //Add TakeDamage(enemy)
         }
     }
 

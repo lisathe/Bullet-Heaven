@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50264921147593682}
   - component: {fileID: 114845264949557796}
   m_Layer: 0
-  m_Name: Straight bullet
+  m_Name: Straight enemy bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,13 +36,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1981259851977390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!50 &50264921147593682
 Rigidbody2D:
   serializedVersion: 4
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.11, y: 0.35}
+    oldSize: {x: 0.12, y: 0.25}
     newSize: {x: 0.11, y: 0.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd9c047ee94ac24886822a7970c7086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerShot: 1
+  _playerShot: 0
   _speed: 8
 --- !u!212 &212007591928551120
 SpriteRenderer:
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c04818b03c7f3741b0b32c63ccdfdc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3b5dec5de8aeb4429ace47e4270677e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
