@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerShot: 1
   _speed: 8
+  _dmgBullet: 1
 --- !u!212 &212007591928551120
 SpriteRenderer:
   m_ObjectHideFlags: 1

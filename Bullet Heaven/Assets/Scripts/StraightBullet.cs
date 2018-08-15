@@ -11,19 +11,22 @@ public class StraightBullet : Bullet {
     private float _speed;
     private Rigidbody2D _rb;
 
+    [SerializeField]
+    private int _dmgBullet;
+
 
 	public override void Awake ()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _isPlayer = _playerShot;
         _isPlayerBullet = _playerShot;
+        _damage = _dmgBullet;
         base.Awake();
 	}
 	
     // If the enemy shoots the bullet down, player shoots up
 	public override void Update ()
     {
-        if (_isPlayer)
+        if (_isPlayerBullet)
         {
             _rb.velocity = Vector2.up * _speed;
         }

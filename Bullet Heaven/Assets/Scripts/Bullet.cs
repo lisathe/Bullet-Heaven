@@ -7,13 +7,13 @@ public abstract class Bullet : MonoBehaviour {
     protected AudioClip _collisionSound;
     protected float _destroyTime;
     protected float _timer;
-    protected bool _isPlayer;
     protected bool _isPlayerBullet;
+    protected int _damage;
 
     public virtual void Awake()
     {
         _timer = 0;
-        _destroyTime = 1.5f;
+        _destroyTime = 2f;
     }
 	
 	public virtual void Update ()
@@ -22,27 +22,28 @@ public abstract class Bullet : MonoBehaviour {
         _timer += Time.deltaTime;
         if (_timer >= _destroyTime)
         {
-            gameObject.SetActive(false);
             _timer = 0;
+            gameObject.SetActive(false);
+
         }
 	}
 
     // If the player is hit by the enemy bullet, or the enemy is hit by the player bullet
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_isPlayer && !_isPlayerBullet)
+        if (collision.CompareTag("Player") && !_isPlayerBullet)
         {
             gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
-            // Add TakeDamage(player)
+            collision.gameObject.GetComponent<Health>().TakeDamage(_damage, _isPlayerBullet);
         }
 
-        if (!_isPlayer && _isPlayerBullet)
+        if (collision.CompareTag("Enemy") && _isPlayerBullet)
         {
 
             gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(_collisionSound, transform.position);
-            //Add TakeDamage(enemy)
+            collision.gameObject.GetComponent<Health>().TakeDamage(_damage, _isPlayerBullet);
         }
     }
 
