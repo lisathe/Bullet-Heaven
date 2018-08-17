@@ -23,21 +23,21 @@ public class PlayerAttack : MonoBehaviour {
     {
         if (!_autoFire && Input.GetMouseButtonDown(0))
         {
-            Fire(_bulletPool);
+            Fire();
         }
 
         if (_autoFire && Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            Fire(_bulletPool);
+            Fire();
         }
 	}
 
-    private void Fire(ObjectPooler pool)
+    private void Fire( )
     {
         // The first child of the player is the bullet start position
         Vector2 startPosition = transform.GetChild(0).position;
-        GameObject bullet = pool.GetPooledObject();
+        GameObject bullet = _bulletPool.GetPooledObject();
         bullet.transform.position = startPosition;
         bullet.SetActive(true);
     }

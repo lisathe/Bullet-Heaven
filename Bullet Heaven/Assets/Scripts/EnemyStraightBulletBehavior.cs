@@ -2,34 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour {
+public class EnemyStraightBulletBehavior : MonoBehaviour {
 
     [SerializeField]
-    private ObjectPooler _bulletPool;
-
     private float _fireRate;
+
+    private ObjectPooler _bulletPool;
     private float _nextFire;
 
-    private void Awake()
+    private void Start()
     {
-        _fireRate = 0.8f;
-        _nextFire = 0;
+        _bulletPool = GameObject.FindGameObjectWithTag("EnemyStraightBulletPool").GetComponent<ObjectPooler>();
     }
 
-    void Update()
+    private void Update()
     {
         if (Time.time > _nextFire)
         {
             _nextFire = Time.time + _fireRate;
-            Fire(_bulletPool);
+            Fire();
         }
     }
-
-    private void Fire(ObjectPooler pool)
+    public void Fire()
     {
-        // The first child of the player is the bullet start position
+        // The first child of the enemy is the bullet start position
         Vector2 startPosition = transform.GetChild(0).position;
-        GameObject bullet = pool.GetPooledObject();
+        GameObject bullet = _bulletPool.GetPooledObject();
         bullet.transform.position = startPosition;
         bullet.SetActive(true);
     }
