@@ -7,7 +7,7 @@ public class EndlessSpawner : MonoBehaviour {
 
     //Enemy object pools
     [SerializeField]
-    private ObjectPooler _enemyStraight;
+    private List <ObjectPooler> _enemies;
 
     //Spawn Range
     [SerializeField]
@@ -41,7 +41,7 @@ public class EndlessSpawner : MonoBehaviour {
         else
         {
             _enemyTimer = 0;
-            SpawnObject(_enemyStraight);
+            SpawnObject(_enemies[Random.Range(0, _enemies.Count)]);
             _enemySpawnInterval = Mathf.Lerp(_enemyStartInterval, _enemyEndInterval, Time.timeSinceLevelLoad / _estimatedPlaytime);
         }
 	}
