@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour {
     private ObjectPooler _bulletPool;
 
     // Needs to be placed in the settings, or so.
-    [SerializeField]
+   // [SerializeField]
     private bool _autoFire;
     private float _fireRate;
     private float _nextFire;
@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour {
     {
         _fireRate = 0.15f;
         _nextFire = 0;
+        _autoFire = OptionMenu._autoFire;
     }
 
     void Update ()

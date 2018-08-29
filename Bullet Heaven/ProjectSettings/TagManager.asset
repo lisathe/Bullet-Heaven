@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - EnemyStraightBulletPool
   - SineWaveBulletPool
+  - MainMenuPanel
+  - OptionMenuPanel
   layers:
   - Default
   - TransparentFX
